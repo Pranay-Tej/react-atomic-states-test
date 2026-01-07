@@ -28,13 +28,9 @@ export const fetchCategories = async () => {
   }
 };
 
-export const fetchProducts = async ({
-  page,
-  selectedCategory,
-}: {
-  page: number;
-  selectedCategory: string;
-}) => {
+export const fetchProducts = async () => {
+  const selectedCategory = store.get(selectedCategoryAtom);
+  const page = store.get(pageAtom);
   try {
     let requestUrl = "https://dummyjson.com/products";
 

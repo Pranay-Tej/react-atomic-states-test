@@ -1,5 +1,5 @@
 import { useAtom, useAtomValue } from "jotai";
-import { lastPageAtom, pageAtom } from "./store";
+import { fetchProducts, lastPageAtom, pageAtom } from "./store";
 
 export const Pagination = () => {
   const [page, setPage] = useAtom(pageAtom);
@@ -7,6 +7,7 @@ export const Pagination = () => {
 
   const handlePagination = (offset: number) => {
     setPage(page + offset);
+    fetchProducts();
   };
 
   return (

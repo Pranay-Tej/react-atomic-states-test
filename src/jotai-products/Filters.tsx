@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { fetchCategories } from "./store";
+import { fetchCategories, fetchProducts } from "./store";
 import { categoriesAtom, pageAtom, selectedCategoryAtom } from "./store";
 import { useAtom, useAtomValue, useSetAtom } from "jotai";
 
@@ -17,9 +17,9 @@ export const Filters = () => {
       <select
         value={selectedCategory}
         onChange={(e) => {
-            // write as a single update, trigger a single api call?
             setPage(1);
             setSelectedCategory(e.target.value);
+            fetchProducts();
         }}
       >
         <option value="">All</option>
