@@ -5,7 +5,7 @@ import { ProductsSignals } from "./products-signals";
 import { ValtioProducts } from "./valtio-products";
 
 function App() {
-  const [page, setPage] = useState(2);
+  const [page, setPage] = useState(1);
 
   return (
     <>

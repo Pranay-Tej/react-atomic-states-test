@@ -5,6 +5,8 @@ import { batch } from "@preact/signals-react";
 import { useSignals } from "@preact/signals-react/runtime";
 
 export const Filters = () => {
+  "use no memo";
+
   useSignals();
   
   useEffect(() => {

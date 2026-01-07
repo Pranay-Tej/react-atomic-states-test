@@ -2,6 +2,8 @@ import { lastPage, page } from "./store";
 import { useSignals } from "@preact/signals-react/runtime";
 
 export const Pagination = () => {
+  "use no memo";
+
   useSignals()
   
   const handlePagination = (offset: number) => {
