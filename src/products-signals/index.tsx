@@ -21,13 +21,14 @@ export const ProductsSignals = () => {
     <>
       <h2>Preact Signals demo</h2>
       <p>
-        Requires transform babel plugin and is not working as expected along
-        with react compiler
-      </p>
-      <p>
-        will need use-no-memo opt-out
+        Requires transform babel plugin or useSignals() at every component level 
       </p>
       <pre>{msg}</pre>
+      <p>
+        Not working as expected along
+        with react compiler
+        .Will need &apos;use no memo&apos; opt-out
+      </p>
       <Filters />
       <List />
       <Pagination />
