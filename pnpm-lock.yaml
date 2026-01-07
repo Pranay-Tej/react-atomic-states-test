@@ -58,6 +58,9 @@ devDependencies:
   eslint-plugin-react-refresh:
     specifier: ^0.4.24
     version: 0.4.26(eslint@9.39.2)
+  eslint-plugin-valtio:
+    specifier: ^0.8.0
+    version: 0.8.0
   globals:
     specifier: ^16.5.0
     version: 16.5.0
@@ -1307,6 +1310,11 @@ packages:
       eslint: '>=8.40'
     dependencies:
       eslint: 9.39.2
+    dev: true
+
+  /eslint-plugin-valtio@0.8.0:
+    resolution: {integrity: sha512-bsqtbNB2Vhp4jWExsV3lZRwFYoWCkBb6K1LUuRgItdN7SjOQlvTcNdm4u8CfHl2N76TM9kDuftnoVs/cXIyJLw==}
+    engines: {node: '>=12.7.0'}
     dev: true
 
   /eslint-scope@8.4.0:
