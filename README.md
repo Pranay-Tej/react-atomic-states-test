@@ -1,4 +1,37 @@
-# React + TypeScript + Vite
+# React Atomic States Test
+
+- Valtio (proxy object)
+  - seems simple with inbuilt render optimization
+  - would be nice for medium level states
+  - has eslint: `eslint-plugin-valtio`
+- Jotai (atomic)
+  - simple but requires `const store = getDefaultStore(); store.set(categoriesAtom, categoriesResponse.data)` for setting atom state outside of components
+- Zustand
+  - can be made to work almost like rtk
+  - selectors, reducers, actions, async actions
+  - but without the need for registering as global slice key as independent states
+- PreactJS Signals
+  - seems to use some transformer to change render behavior
+  - Requires transform babel plugin
+  - or `useSignals()` from `@preact/signals-react/runtime` at every component level 
+```js
+  export default defineConfig({
+  plugins: [
+    react({
+      babel: {
+        plugins: [
+          ["babel-plugin-react-compiler"],
+          ["module:@preact/signals-react-transform"],
+        ],
+      },
+    }),
+  ],
+});
+  ```
+- Stats Comparision: https://npmtrends.com/@preact/signals-core-vs-jotai-vs-recoil-vs-valtio-vs-zustand
+
+
+## React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
