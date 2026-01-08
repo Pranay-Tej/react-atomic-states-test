@@ -6,14 +6,14 @@
   - has eslint: `eslint-plugin-valtio`
 - Jotai (atomic)
   - simple but requires `const store = getDefaultStore(); store.set(categoriesAtom, categoriesResponse.data)` for setting atom state outside of components
-- Zustand
+- Zustand (redux-like)
   - can be made to work almost like rtk
   - selectors, reducers, actions, async actions
-  - but without the need for registering as global slice key as independent states
+  - but without the need for registering as global slice key; as independent states
 - PreactJS Signals
   - seems to use some transformer to change render behavior
   - Requires transform babel plugin
-  - or `useSignals()` from `@preact/signals-react/runtime` at every component level 
+  - or `useSignals()` from `@preact/signals-react/runtime` in every component that uses signals
 ```js
   export default defineConfig({
   plugins: [
