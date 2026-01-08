@@ -1,11 +1,10 @@
-import { useSnapshot } from "valtio";
-import { fetchProducts, state } from "./store";
+import { fetchProducts, productActions, useProductsSnapshot } from "./store";
 
 export const Pagination = () => {
-  const snap = useSnapshot(state);
+  const snap = useProductsSnapshot();
 
   const handlePagination = (offset: number) => {
-    state.page += offset;
+    productActions.offsetPage(offset);
     fetchProducts();
   };
 

@@ -1,9 +1,8 @@
 import { useEffect } from "react";
-import { useSnapshot } from "valtio";
-import { fetchProducts, state } from "./store";
+import { fetchProducts, useProductsSnapshot } from "./store";
 
 export const List = () => {
-  const snap = useSnapshot(state);
+  const snap = useProductsSnapshot();
 
   // useOnMount(() => {
   //   fetchProducts();

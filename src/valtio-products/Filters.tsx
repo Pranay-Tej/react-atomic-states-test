@@ -1,9 +1,9 @@
 import { useEffect } from "react";
-import { useSnapshot } from "valtio";
-import { fetchCategories, fetchProducts, state } from "./store";
+import { fetchCategories, fetchProducts, productActions, useProductsSnapshot } from "./store";
 
 export const Filters = () => {
-  const snap = useSnapshot(state);
+  const snap = useProductsSnapshot();
+  
 
   // useOnMount(() => {
   //   fetchCategories();
@@ -19,8 +19,7 @@ export const Filters = () => {
         value={snap.selectedCategory}
         onChange={(e) => {
           console.log("onChange called");
-          state.page = 1; 
-          state.selectedCategory = e.target.value;   
+          productActions.setSelectedCategory(e.target.value); 
           fetchProducts();       
         }}
       >
