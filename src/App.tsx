@@ -10,18 +10,22 @@ function App() {
 
   return (
     <>
-      <header>
-        <select
-          value={page}
-          onChange={(e) => {
-            setPage(Number(e.target.value));
-          }}
-        >
-          <option value="1">Valtio</option>
-          <option value="2">Jotai</option>
-          <option value="3">Zustand</option>
-          <option value="4">Preact Signals</option>
-        </select>
+      <header className="app-header">
+        <label htmlFor="state-lib">
+          Select State Library:
+          <select
+            id="state-lib"
+            value={page}
+            onChange={(e) => {
+              setPage(Number(e.target.value));
+            }}
+          >
+            <option value="1">Valtio</option>
+            <option value="2">Jotai</option>
+            <option value="3">Zustand</option>
+            <option value="4">Preact Signals</option>
+          </select>
+        </label>
       </header>
 
       {page == 1 && <ValtioProducts />}
