@@ -1,3 +1,4 @@
+import Nav from "../Nav";
 import { Filters } from "./Filters";
 import { List } from "./List";
 import { Pagination } from "./Pagination";
@@ -42,11 +43,17 @@ export const ZustandProducts = () => {
   const isAuthenticated = useAuthStore(selectIsAuthenticated);
 
   if (!isAuthenticated) {
-    return <Login />;
+    return (
+      <>
+      <Nav />
+        <Login />
+      </>
+    );
   }
 
   return (
     <>
+      <Nav />
       <h2>Zustand Products demo</h2>
       <Logout />
       <SimulatedUnauthenticatedAccess />

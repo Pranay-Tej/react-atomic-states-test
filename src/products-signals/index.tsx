@@ -1,3 +1,4 @@
+import Nav from "../Nav";
 import { Filters } from "./Filters";
 import { List } from "./List";
 import { Pagination } from "./Pagination";
@@ -19,15 +20,15 @@ export const ProductsSignals = () => {
 
   return (
     <>
+      <Nav />
       <h2>Preact Signals demo</h2>
       <p>
-        Requires transform babel plugin or useSignals() at every component level 
+        Requires transform babel plugin or useSignals() at every component level
       </p>
       <pre>{msg}</pre>
       <p>
-        Not working as expected along
-        with react compiler
-        .Will need &apos;use no memo&apos; opt-out
+        Not working as expected along with react compiler .Will need &apos;use
+        no memo&apos; opt-out
       </p>
       <Filters />
       <List />
