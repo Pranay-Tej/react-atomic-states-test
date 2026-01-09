@@ -16,19 +16,28 @@
   - or `useSignals()` from `@preact/signals-react/runtime` in every component that uses signals
 ```js
   export default defineConfig({
-  plugins: [
-    react({
-      babel: {
-        plugins: [
-          ["babel-plugin-react-compiler"],
-          ["module:@preact/signals-react-transform"],
-        ],
-      },
-    }),
-  ],
-});
+    plugins: [
+      react({
+        babel: {
+          plugins: [
+            ["babel-plugin-react-compiler"],
+            ["module:@preact/signals-react-transform"],
+          ],
+        },
+      }),
+    ],
+  });
   ```
-- Stats Comparision: https://npmtrends.com/@preact/signals-core-vs-jotai-vs-recoil-vs-valtio-vs-zustand
+- Stats Comparison: https://npmtrends.com/@preact/signals-core-vs-jotai-vs-recoil-vs-valtio-vs-zustand
+
+## Use cases
+
+- Pros
+  - use as alternate to Context or large hooks and declare state outside of component files
+- Cons
+  - not able to use hooks, selectors, dispatch (useRouter, selectBrokerName, useDispatch, etc) in non-component files
+    - but if we choose to use as complete state management, one store can access-values/trigger-actions from other stores
+
 
 
 ## React + TypeScript + Vite

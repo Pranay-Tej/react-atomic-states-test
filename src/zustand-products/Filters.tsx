@@ -5,7 +5,7 @@ import {
   selectSelectedCategory,
   useProductsStore,
   useProductStoreActions,
-} from "./store";
+} from "./store/productsStore";
 
 export const Filters = () => {
   const categories = useProductsStore(selectCategories);

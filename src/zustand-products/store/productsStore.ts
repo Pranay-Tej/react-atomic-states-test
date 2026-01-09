@@ -1,7 +1,8 @@
 import { create } from "zustand";
 import axios from "axios";
-import { PER_PAGE } from "./constants";
-import type { Category, Product, ProductResponse } from "./model";
+import { PER_PAGE } from "../constants";
+import type { Category, Product, ProductResponse } from "../model";
+import { useAuthStore } from "./authStore";
 
 type ProductStoreState = {
   products: Product[];
@@ -68,6 +69,12 @@ export const useProductsStore = create<ProductStoreState>(
 // actions can also be defined outside (Ex: all api calls in a different file)
 export const fetchProducts = async () => {
   const { page, selectedCategory } = useProductsStore.getState();
+
+
+  // access authStore userId
+  const userId = useAuthStore.getState().userId;
+  console.log("Fetching products for user:", userId);
+
   try {
     let requestUrl = "https://dummyjson.com/products";
     if (selectedCategory) {
@@ -85,6 +92,12 @@ export const fetchProducts = async () => {
     console.error(error);
   }
 };
+
+export const fetchProductsUnauthenticated = async () => {
+  // simulating unauthenticated access
+  console.log("Fetching products for unauthenticated user");
+  useAuthStore.getState().actions.logout();
+}
 
 // selectors
 export const selectProducts = (state: ProductStoreState) => state.products;

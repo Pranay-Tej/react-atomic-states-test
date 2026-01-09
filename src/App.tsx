@@ -6,7 +6,7 @@ import { ValtioProducts } from "./valtio-products";
 import { ZustandProducts } from "./zustand-products";
 
 function App() {
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(3);
 
   return (
     <>

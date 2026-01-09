@@ -1,4 +1,4 @@
-import { useProductsStore, selectLastPage, selectPage, useProductStoreActions, fetchProducts } from "./store";
+import { useProductsStore, selectLastPage, selectPage, useProductStoreActions, fetchProducts } from "./store/productsStore";
 
 export const Pagination = () => {
   const page = useProductsStore(selectPage);

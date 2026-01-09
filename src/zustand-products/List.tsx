@@ -3,7 +3,7 @@ import {
   fetchProducts,
   selectProducts,
   useProductsStore,
-} from "./store";
+} from "./store/productsStore";
 
 export const List = () => {
   const products = useProductsStore(selectProducts);
