@@ -6,7 +6,7 @@ function HomePage() {
       <h1>Atomic States</h1>
       <ul>
         <li>
-          <Link to="/zustand-products">Zustand Products Demo</Link>
+          <Link to="/zustand-products/login">Zustand Products Demo</Link>
         </li>
         <li>
           <Link to="/valtio-products">Valtio Products Demo</Link>
