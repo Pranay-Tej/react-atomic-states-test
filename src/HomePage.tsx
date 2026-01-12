@@ -17,6 +17,9 @@ function HomePage() {
         <li>
           <Link to="/products-signals">Preact Signals Products Demo</Link>
         </li>
+        <li>
+          <Link to="/use-sync-external-store">UseSyncExternalStore Demo</Link>
+        </li>
       </ul>
     </div>
   );

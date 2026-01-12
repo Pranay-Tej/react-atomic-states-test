@@ -1,5 +1,13 @@
 # React Atomic States Test
 
+- Plain React (useSyncExternalStore)
+  - state can be defined outside of react
+  - useful for medium states, without context or any external library
+  - can have selectors for performant re-renders
+  - has automatic unsub for selectors, handled by the hook itself
+  - cons
+    - we have to manage listeners (simple and same logic always)
+    - trigger emit event carefully (for all state mutations) (but react will only re-render if getSnapshot reference/value changes)
 - Valtio (proxy object)
   - seems simple with inbuilt render optimization
   - would be nice for medium level states
