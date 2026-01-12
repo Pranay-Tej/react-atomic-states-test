@@ -10,24 +10,31 @@
   - can be made to work almost like rtk
   - selectors, reducers, actions, async actions
   - but without the need for registering as global slice key; as independent states
+  - cons:
+    - selectors can only be used inside template
+    - they cannot be used in action handlers, async action handlers
+    - initialization of state from props is still problematic
+      - have to sync with a useEffect (same as context)
 - PreactJS Signals
   - seems to use some transformer to change render behavior
   - Requires transform babel plugin
   - or `useSignals()` from `@preact/signals-react/runtime` in every component that uses signals
+
 ```js
-  export default defineConfig({
-    plugins: [
-      react({
-        babel: {
-          plugins: [
-            ["babel-plugin-react-compiler"],
-            ["module:@preact/signals-react-transform"],
-          ],
-        },
-      }),
-    ],
-  });
-  ```
+export default defineConfig({
+  plugins: [
+    react({
+      babel: {
+        plugins: [
+          ["babel-plugin-react-compiler"],
+          ["module:@preact/signals-react-transform"],
+        ],
+      },
+    }),
+  ],
+});
+```
+
 - Stats Comparison: https://npmtrends.com/@preact/signals-core-vs-jotai-vs-recoil-vs-valtio-vs-zustand
 
 ## Use cases
@@ -37,8 +44,6 @@
 - Cons
   - not able to use hooks, selectors, dispatch (useRouter, selectBrokerName, useDispatch, etc) in non-component files
     - but if we choose to use as complete state management, one store can access-values/trigger-actions from other stores
-
-
 
 ## React + TypeScript + Vite
 
@@ -61,9 +66,9 @@ If you are developing a production application, we recommend updating the config
 
 ```js
 export default defineConfig([
-  globalIgnores(['dist']),
+  globalIgnores(["dist"]),
   {
-    files: ['**/*.{ts,tsx}'],
+    files: ["**/*.{ts,tsx}"],
     extends: [
       // Other configs...
 
@@ -78,40 +83,40 @@ export default defineConfig([
     ],
     languageOptions: {
       parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
         tsconfigRootDir: import.meta.dirname,
       },
       // other options...
     },
   },
-])
+]);
 ```
 
 You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
 ```js
 // eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+import reactX from "eslint-plugin-react-x";
+import reactDom from "eslint-plugin-react-dom";
 
 export default defineConfig([
-  globalIgnores(['dist']),
+  globalIgnores(["dist"]),
   {
-    files: ['**/*.{ts,tsx}'],
+    files: ["**/*.{ts,tsx}"],
     extends: [
       // Other configs...
       // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
+      reactX.configs["recommended-typescript"],
       // Enable lint rules for React DOM
       reactDom.configs.recommended,
     ],
     languageOptions: {
       parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
         tsconfigRootDir: import.meta.dirname,
       },
       // other options...
     },
   },
-])
+]);
 ```
